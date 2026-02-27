@@ -37,7 +37,10 @@ Meta Field Block でURLフィールドを出力する際、ブロックのサイ
 
 ## 依存プラグイン
 
-- [Meta Field Block（display-a-meta-field-as-block）](https://wordpress.org/plugins/display-a-meta-field-as-block/) が有効化されている必要があります。
+[Meta Field Block（display-a-meta-field-as-block）](https://wordpress.org/plugins/display-a-meta-field-as-block/) が有効化されている必要があります。
+
+- Meta Field Block が無効の状態でこのプラグインを有効化しようとすると、エラーメッセージを表示してキャンセルします。
+- Meta Field Block が後から無効化された場合は、管理画面のプラグイン一覧にエラー通知を表示し、すべての機能を停止します。
 
 ## ファイル構成
 
@@ -52,6 +55,8 @@ next-display-a-meta-field-add-link/
 
 | 処理 | 使用フック |
 |------|-----------|
+| 有効化時の依存チェック | `register_activation_hook` |
+| ランタイムの依存チェック・初期化 | `plugins_loaded` |
 | PHP 側にカスタム属性を登録 | `block_type_metadata_settings` |
 | フロントエンドでリンクをラップ | `meta_field_block_get_block_content` |
 | エディタースクリプトのエンキュー | `enqueue_block_editor_assets` |
@@ -63,3 +68,14 @@ next-display-a-meta-field-add-link/
 - WordPress 5.9 以上
 - PHP 7.4 以上
 - Meta Field Block 1.x
+
+## 変更履歴
+
+### 1.1.0
+- 依存プラグイン（Meta Field Block）のチェックを追加
+  - 有効化時: Meta Field Block が無効なら有効化をキャンセル
+  - ランタイム: Meta Field Block が無効な場合は処理をスキップ
+  - 管理画面: プラグイン一覧画面に依存不足のエラー通知を表示
+
+### 1.0.0
+- 初回リリース

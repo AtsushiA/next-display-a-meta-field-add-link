@@ -1,5 +1,7 @@
 # NExT Meta Field Block add Link
 
+[![Try in WordPress Playground](https://img.shields.io/badge/Try%20in-WordPress%20Playground-3858e9?logo=wordpress)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/AtsushiA/next-display-a-meta-field-add-link/main/blueprint.json)
+
 [Meta Field Block（display-a-meta-field-as-block）](https://wordpress.org/plugins/display-a-meta-field-as-block/) のブロックに、リンク付与と新しいタブで開くオプションを追加するプラグインです。
 
 ## 機能
